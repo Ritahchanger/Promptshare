@@ -51,11 +51,33 @@ const Login = async (req,res,next)=>{
 
         const { email,password } = req.body;
 
-        const user = await findOne({email})
+        const user = await User.findOne({email})
+
+        if(!user){
+
+            return res.status(200).json({status:404,success:false,message:"The user was not found"});
+
+        }
+        else{
+
+            const isMatch = await bcrypt.compare(password,user.password);
+
+            if(!isMatch){
+
+                return res.status(200).json({status:200,success:true,message:"Wrong password"});
+
+            }
+
+            const token = jwt.sign({_id:user.id,email:user.email},process.env.JWT_SECRET,{expiresIn:"1h"});
+
+
+            res.status(200).json({success:true,message:'successfully authenticated',token:token})
+
+        }
 
     }catch(error){
 
-        next(error)
+        res.status(500).json({success:false,message:'Internal server error',error:error.message});   
 
     }
 
@@ -79,7 +101,7 @@ const getUsers = async (req,res)=>{
 
     }catch(error){
 
-        res.status(500).json({success:false,message:'Internal erver error',error:error.message});
+        res.status(500).json({success:false,message:'Internal server error',error:error.message});
 
     }
 
