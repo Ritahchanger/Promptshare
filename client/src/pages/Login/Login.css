@@ -1,0 +1,15 @@
+.login input{
+    border:1px solid #ababab;
+    outline:none;
+}
+
+.login input[type=submit]{
+
+    border:none;
+
+}
+.login .input-group{
+
+    margin:10px 0;
+
+}
