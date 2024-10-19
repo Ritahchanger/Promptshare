@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 import {
   FaRegFileAlt,
   FaChartLine,
@@ -7,9 +7,15 @@ import {
   FaLanguage,
 } from "react-icons/fa";
 
+import { useNavigate } from "react-router-dom";
+
 import Navbar from "../../../components/Navbar/Navbar";
 
 import { IoMdSend } from "react-icons/io";
+
+import "./Home.css";
+
+import ChatBot from "../ChatBot/ChatBot";
 
 const features = [
   {
@@ -45,6 +51,18 @@ const features = [
 ];
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const isAuthenticated =
+      !!localStorage.getItem("authenticated") ||
+      !!localStorage.getItem("token");
+
+    if (!isAuthenticated) {
+      navigate("/");
+    }
+  }, []);
+
   return (
     <div>
       <Navbar />
@@ -71,6 +89,9 @@ const Home = () => {
               CHAT BOT
             </p>
           </div>
+         
+          <ChatBot/>
+
           <form action="" className="w-full flex justify-between items-center">
             <div className="input-group basis-[95%]">
               <input

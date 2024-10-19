@@ -1,0 +1,9 @@
+.chat-convo {
+  max-width: calc(100% - 200px);
+  float: right;
+}
+.user-convo {
+  max-width: calc(100% - 200px);
+
+  float: left;
+}

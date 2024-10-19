@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Signup.css";
 import axios from "axios";
@@ -96,6 +96,9 @@ const Signup = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+
+  
 
   return (
     <div className="w-full h-[100vh] flex items-center justify-center login">

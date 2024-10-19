@@ -43,7 +43,7 @@ const Login = () => {
           icon: "error",
           confirmButtonText: "Okay",
         });
-        setLoading(false); 
+        setLoading(false);
         return;
       }
 
@@ -53,17 +53,21 @@ const Login = () => {
         icon: "success",
         confirmButtonText: "Okay",
       }).then(() => {
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("authenticated", true);
         navigate("/admin/dashboard/home");
       });
     } catch (error) {
       Swal.fire({
         title: "Error!",
-        text: `Login failed: ${error.response ? error.response.data.message : error.message}`,
+        text: `Login failed: ${
+          error.response ? error.response.data.message : error.message
+        }`,
         icon: "error",
         confirmButtonText: "Okay",
       });
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
@@ -95,7 +99,7 @@ const Login = () => {
               type="submit"
               className="h-[40px] w-full bg-orange-600 text-white"
               value={`${loading ? "LOADING..." : "LOGIN"}`}
-              disabled={loading} 
+              disabled={loading}
             />
           </div>
           <p>
