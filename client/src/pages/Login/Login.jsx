@@ -1,15 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
-import "./Login.css";
-
 import { useState } from "react";
+import Swal from "sweetalert2";
+import axios from "axios";
+import "./Login.css";
 
 const Login = () => {
   const navigate = useNavigate();
-
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const email = e.target.email.value;
@@ -25,26 +24,46 @@ const Login = () => {
       return;
     }
 
-    if (email === "test@example.com" && password === "1234") {
+    try {
+      setLoading(true);
+      const response = await axios.post(
+        `http://localhost:8000/api/auth/login`,
+        { email, password },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (!response.data.success) {
+        Swal.fire({
+          title: "Error",
+          text: response.data.message,
+          icon: "error",
+          confirmButtonText: "Okay",
+        });
+        setLoading(false); 
+        return;
+      }
+
       Swal.fire({
         title: "Success!",
         text: "You have successfully logged in.",
         icon: "success",
         confirmButtonText: "Okay",
       }).then(() => {
-        setLoading(true);
-        setTimeout(() => {
-          setLoading(false);
-          navigate("/admin/dashboard/home");
-        }, 3000);
+        navigate("/admin/dashboard/home");
       });
-    } else {
+    } catch (error) {
       Swal.fire({
         title: "Error!",
-        text: "Invalid email or password.",
+        text: `Login failed: ${error.response ? error.response.data.message : error.message}`,
         icon: "error",
-        confirmButtonText: "Try Again",
+        confirmButtonText: "Okay",
       });
+    } finally {
+      setLoading(false); 
     }
   };
 
@@ -59,6 +78,7 @@ const Login = () => {
               name="email"
               className="h-[40px] w-full border-slate-500 px-2"
               placeholder="Enter email"
+              required
             />
           </div>
           <div className="input-group">
@@ -67,6 +87,7 @@ const Login = () => {
               name="password"
               className="h-[40px] w-full border-slate-500 px-2"
               placeholder="Enter password"
+              required
             />
           </div>
           <div className="input-group">
@@ -74,6 +95,7 @@ const Login = () => {
               type="submit"
               className="h-[40px] w-full bg-orange-600 text-white"
               value={`${loading ? "LOADING..." : "LOGIN"}`}
+              disabled={loading} 
             />
           </div>
           <p>

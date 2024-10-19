@@ -1,15 +1,16 @@
-.login input{
-    border:1px solid #ababab;
-    outline:none;
+.signup input {
+  border: 1px solid #ababab;
+  outline: none;
 }
 
-.login input[type=submit]{
-
-    border:none;
-
+.signup input[type="submit"] {
+  border: none;
 }
-.login .input-group{
-
-    margin:10px 0;
-
+.signup .input-group {
+  margin: 10px 0;
+}
+.signup .error-text {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
 }
