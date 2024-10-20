@@ -8,6 +8,7 @@ const express = require("express");
 
 const PORT = process.env.PORT || 8000
 
+const cors = require("cors")
 
 const { databaseConnect } = require("../database/databaseConfig");
 
@@ -21,6 +22,8 @@ const morgan = require("morgan");
 app.use(helmet());
 
 app.use(morgan("DEV"));
+
+app.use(cors())
 
 app.use(express.json());
 

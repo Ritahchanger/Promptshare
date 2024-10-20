@@ -64,7 +64,7 @@ const Login = async (req,res,next)=>{
 
             if(!isMatch){
 
-                return res.status(200).json({status:200,success:true,message:"Wrong password"});
+                return res.status(200).json({status:200,success:false,message:"Wrong password"});
 
             }
 

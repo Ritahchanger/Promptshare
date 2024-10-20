@@ -38,7 +38,5 @@ async function run(prompt) {
     return "An error occurred while fetching the response.";
   }
 }
-(async () => {
-  const response = await run("Who is the president of Kenya?");
-  console.log("AI Response:", response);
-})();
+
+module.exports = { run }
