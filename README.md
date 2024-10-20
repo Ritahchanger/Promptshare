@@ -1,7 +1,4 @@
-## `PROMPT SHARE`  ##
-
-
-![PromptShare](https://github.com/Ritahchanger/Promptshare/raw/main/assets/logo.png) 
+## `PROMPT SHARE` ##
 
 ## Table of Contents
 - [Overview](#overview)
@@ -14,6 +11,10 @@
 
 ## Overview
 PromptShare is a cutting-edge chat system powered by Gemini, designed to facilitate seamless interactions and advanced text processing. Whether it's summarizing text, performing sentiment analysis, extracting keywords, or engaging in real-time conversations with a chatbot, PromptShare has it all!
+
+## Screenshot
+
+![Prompt Screenshot](client/src/Assets/screenshots/prompt1.png)
 
 ## Features
 - **Text Summarization**: Automatically condense lengthy texts into concise summaries.
@@ -36,3 +37,4 @@ PromptShare is a cutting-edge chat system powered by Gemini, designed to facilit
 1. **Clone the Repository**
    ```bash
    git clone https://github.com/Ritahchanger/Promptshare.git
+   cd Promptshare
