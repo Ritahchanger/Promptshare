@@ -11,7 +11,6 @@
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 PromptShare is a cutting-edge chat system powered by Gemini, designed to facilitate seamless interactions and advanced text processing. Whether it's summarizing text, performing sentiment analysis, extracting keywords, or engaging in real-time conversations with a chatbot, PromptShare has it all!
