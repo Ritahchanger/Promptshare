@@ -100,9 +100,9 @@ const languageTranslation = async (req,res)=>{
 
         const { prompt,language } = req.body;
 
-        if(!prompt){
+        if(!prompt || !language){
 
-            return res.status(200).json({status:404,success:false,message:'No prompt provided'});
+            return res.status(200).json({status:404,success:false,message:'Missing requirements'});
 
         }
 

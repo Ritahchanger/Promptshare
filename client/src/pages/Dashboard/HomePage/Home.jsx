@@ -4,6 +4,7 @@ import {
   FaChartLine,
   FaTag,
   FaFileContract,
+  FaRobot,
   FaLanguage,
 } from "react-icons/fa";
 
@@ -11,11 +12,9 @@ import { useNavigate } from "react-router-dom";
 
 import Navbar from "../../../components/Navbar/Navbar";
 
-import { IoMdSend } from "react-icons/io";
-
 import "./Home.css";
 
-import ChatBot from "../ChatBot/ChatBot";
+import UsersChatIcon from "../../../Assets/icons/assets.svg";
 
 const features = [
   {
@@ -48,6 +47,12 @@ const features = [
       "Translate text from one language to another with high accuracy.",
     icon: <FaLanguage className="text-4xl text-orange-600" />,
   },
+  {
+    title: "CHATBOT",
+    description:
+      "Interact with our intelligent chatbot for instant responses and assistance.",
+    icon: <FaRobot className="text-4xl text-orange-600" />,
+  },
 ];
 
 const Home = () => {
@@ -68,11 +73,14 @@ const Home = () => {
       <Navbar />
       <div className="main">
         <div className="max-w-[1200px] mx-auto p-[3rem]">
+          <div className="max-w-[600px] mx-auto">
+            <img src={UsersChatIcon} alt="" />
+          </div>
           <div className="grid grid-cols-2  md:grid-cols-3 gap-[20px]">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="shadow-xl p-4 flex items-center flex-col"
+                className="shadow-xl p-4 flex items-center flex-col cursor-pointer"
               >
                 <div className="mr-4 ">{feature.icon}</div>
                 <div className="">
@@ -84,35 +92,6 @@ const Home = () => {
               </div>
             ))}
           </div>
-          <div className="chart-bot">
-            <p className="text-xl text-center font-semibold text-orange-600 mt-[3rem]">
-              CHAT BOT
-            </p>
-          </div>
-         
-          <ChatBot/>
-
-          <form action="" className="w-full flex justify-between items-center">
-            <div className="input-group basis-[95%]">
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="What can I help you? "
-                className="w-full h-[40px] "
-                style={{
-                  border: "1px solid #ababab",
-                  padding: "10px",
-                }}
-              />
-            </div>
-
-            <button className="h-[30px] w-[30px] flex items-center justify-center">
-              <span className="block send h-full w-full items-center justify-center bg-orange-600 flex items-center justify-center text-white hover:border-[2px solid #fff]">
-                <IoMdSend />
-              </span>
-            </button>
-          </form>
         </div>
       </div>
     </div>
