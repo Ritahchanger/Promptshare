@@ -13,7 +13,6 @@ const cors = require("cors")
 const { databaseConnect } = require("../database/databaseConfig");
 
 
-const AuthenticationRoutes = require("../routes/AuthenticationRoutes");
 
 const helmet = require("helmet");
 
@@ -37,7 +36,17 @@ app.get('/',(req,res)=>{
 })
 
 
+
+const AuthenticationRoutes = require("../routes/AuthenticationRoutes");
+
+
+const GeminiRoute = require("../routes/GeminiRoute");
+
+
 app.use('/api/auth',AuthenticationRoutes);
+
+
+app.use('/api/ai',GeminiRoute);
 
 
 

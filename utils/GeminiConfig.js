@@ -39,4 +39,13 @@ async function run(prompt) {
   }
 }
 
+// (async function(){
+
+//   const answer = await run("Who is the president of kenya")
+
+//   console.log(answer.text)
+
+// })()
+
+
 module.exports = { run }
