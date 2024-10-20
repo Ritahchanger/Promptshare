@@ -49,19 +49,23 @@
 run `npm install`
 
 `add the following `
+```
 PORT=choose_port (e.g., 8000)
 MONGO_URI=mongodb_url
 JWT_SECRET=jwt_secret
+```
 
 2. **Set up Config.js file in the root directory**
 
 `add the following code`
+```javascript
 const geminiKey = {
     geminiKey: 'your_gemini_key'
 };
 module.exports = { geminiKey };
-
+```
 run `npm run dev` to start the server
+
 
 3. **Inside client directory**
 
