@@ -1,4 +1,4 @@
-## `PROMPT SHARE` ##
+# `PROMPT SHARE`
 
 ## Table of Contents
 - [Overview](#overview)
@@ -10,7 +10,9 @@
 - [Contributing](#contributing)
 
 ## Overview
-PromptShare is a cutting-edge chat system powered by Gemini, designed to facilitate seamless interactions and advanced text processing. Whether it's summarizing text, performing sentiment analysis, extracting keywords, or engaging in real-time conversations with a chatbot, PromptShare has it all!
+**PromptShare** is a cutting-edge chat system powered by Gemini, designed to facilitate seamless interactions and advanced text processing. Whether it's summarizing text, performing sentiment analysis, extracting keywords, or engaging in real-time conversations with a chatbot, PromptShare has it all!
+
+**Note:** This project is currently in progress. Features and functionalities will be added over time.
 
 ## Screenshot
 
@@ -38,3 +40,43 @@ PromptShare is a cutting-edge chat system powered by Gemini, designed to facilit
    ```bash
    git clone https://github.com/Ritahchanger/Promptshare.git
    cd Promptshare
+
+
+## Starting the project
+
+1. **Set up .env file in the root directory**
+
+run `npm install`
+
+`add the following `
+PORT=choose_port (e.g., 8000)
+MONGO_URI=mongodb_url
+JWT_SECRET=jwt_secret
+
+2. **Set up Config.js file in the root directory**
+
+`add the following code`
+const geminiKey = {
+    geminiKey: 'your_gemini_key'
+};
+module.exports = { geminiKey };
+
+run `npm run dev` to start the server
+
+3. **Inside client directory**
+
+run `npm install`
+
+run `npm run start` to start the client
+
+`The project will automatically open on your default browser`
+
+
+
+
+
+
+
+
+
+
